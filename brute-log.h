@@ -457,7 +457,7 @@ BRUTE_SNIPPET_END
 #ifndef  BRUTE_ASSERT
 #define  BRUTE_ASSERT(expr, ...)                       \
 if (!(expr)) {                                         \
-    BRUTE_ERROR_V3("Assertion: `" #expr "` failed!");  \
+    BRUTE_ERROR_V4("Assertion: `" #expr "` failed!");  \
     __VA_ARGS__;                                       \
 }
 #endif// BRUTE_CHKPTR
@@ -466,7 +466,7 @@ if (!(expr)) {                                         \
 #ifndef  BRUTE_CHECK_PTR
 #define  BRUTE_CHECK_PTR(ptr, ...)                      \
 if (((void*)0) == (ptr)) {                              \
-    BRUTE_ERROR_V3("Arg `" #ptr "` is null or zero!");  \
+    BRUTE_ERROR_V4("Arg `" #ptr "` is null or zero!");  \
     __VA_ARGS__;                                        \
 }
 #endif// BRUTE_CHECK_PTR
