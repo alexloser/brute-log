@@ -45,6 +45,11 @@ public:
         #define BRUTE_OSTREAM stdout
         BRUTE_INFO("I'm redirected to stdout %d", fileno(stdout));
 
+        // And other debug tools, like print every "interval" steps:
+        for (int i = 1; i <= 10000; ++i) {
+            BRUTE_PROGRESS_RATE(i, 10000, 1500, "rest: %d", 10000-i);
+        }
+
         int* data = 0;
         // This macro check null pointer. If null, print error message and return,
         // the second arg also can be: BRUTE_CHECK_PTR(data, foo(), bar(), blah; blah; blah);
@@ -64,12 +69,11 @@ int main(int argc, char* argv[])
     /** Like BRUTE_CHECK_PTR, but this one accept non-pointer arguments.
      *  This macro equals to these codes:
      *  if (ret != true) {
-     *      // ...
+     *      // Can append more codes here ...
      *      fputs("[2012-12-12 12:12:12] [ERROR] [example.cc:69] [main()] Assertion: `ret == true` failed!\n", stderr);
      *      fputs("Test finished!\n", stderr);
      *      return 99;
-     *  }
-     *  else {
+     *  } else {
      *      return 0;
      *  }
      */
