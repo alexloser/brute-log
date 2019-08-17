@@ -46,20 +46,15 @@ public:
 
         FILE* logfile = fopen("mylog.txt", "w");
 
+        #pragma push_macro("BRUTE_OSTREAM")
         #define BRUTE_OSTREAM logfile
         BRUTE_WARN("I'm redirected into %s %p", "mylog.txt", logfile);
-
-        // This means you can change buffering method: line-buffered, full-buffered, or none-buffered.
-        BRUTE_SET_BUFFERING_METHOD(0, 1024, BRUTE_LINE_BUFFERED);
-
-        __BRUTE_GET_DT__(dt);
-        BRUTE_FPRINT("%s [%s] If all the methods are not suitable, %s\n", dt, "CRITICAL", "still this one");
 
         BRUTE_CLOSE();  // Close logging, all output will be ignored
         BRUTE_INFO("This will not be written into mylog.txt!!!");
 
-        #define BRUTE_OSTREAM stdout
-        BRUTE_INFO("I'm redirected to stdout %d", fileno(stdout));
+        #pragma pop_macro("BRUTE_OSTREAM")
+        BRUTE_INFO("I'm redirected to stderr again");
 
         // And other debug tools, like print every "interval" steps:
         for (int i = 1; i <= 10000; ++i) {
@@ -87,52 +82,52 @@ int main(int argc, char* argv[])
      *  if (ret != true) {
      *      // Can append more codes here ...
      *      fputs("[2012-12-12 12:12:12] [ERROR] [example.cc:69] [main()] Assertion: `ret == true` failed!\n", stderr);
-     *      fputs("Test finished!\n", stderr);
-     *      return 99;
+     *      fputs("ret is not true!!\n", stderr);
+     *      // ......
      *  } else {
-     *      return 0;
+     *      // ......
      *  }
      */
-    BRUTE_ASSERT((ret == true), BRUTE_PRINT("Test finished!\n"); return 99);
+    BRUTE_ASSERT((ret == true), BRUTE_INFO("ret is not true!"););
 
-    return 0;
+    BRUTE_EXIT("Test exit\n");
 }
 ```
 
 ### Output:
 ```
 ./brute_example0
-[2019-08-14 22:31:48.485110] [INFO]  This is info message: string
-[2019-08-14 22:31:48.485165] [WARN]  This is warn message: C++
-[2019-08-14 22:31:48.485171] [ERROR] This is error message: 0.618000
-[2019-08-14 22:31:48.485181] [FATAL] This is fatal message: 0x7ffc977f0ec0
-[2019-08-14 22:31:48.485188] [DEBUG] This is debug message: 123 456
-[2019-08-14 22:31:48.485194] [LUCKY] This is my custom level message: ^_^
-[2019-08-14 22:31:48.485199] [Hello Kitty] { example.cc#19 test } also custom
+[2019-08-17 19:32:56.429855] [INFO]  This is info message: string
+[2019-08-17 19:32:56.429964] [WARN]  This is warn message: C++
+[2019-08-17 19:32:56.429977] [ERROR] This is error message: 0.618000
+[2019-08-17 19:32:56.429995] [FATAL] This is fatal message: 0x7ffc14eedbb0
+[2019-08-17 19:32:56.430003] [DEBUG] This is debug message: 123 456
+[2019-08-17 19:32:56.430015] [LUCKY] This is my custom level message: ^_^
+[2019-08-17 19:32:56.430022] [Hello Kitty] { example.cc#19 test } also custom
 
 [DEBUG] V0 means only level information...
 [DEBUG] [test] V1 means also output function's name
-[2019-08-14 22:31:48.485213] [DEBUG] [test] V2 means output function's name and date-time
-[2019-08-14 22:31:48.485221] [DEBUG] [bool Sample::test()] V3 means output more details than V2
-[2019-08-14 22:31:48.485229] [DEBUG] [example.cc:28] [test] V4 means output much more details than V2
-[2019-08-14 22:31:48.485237] [DEBUG] [example.cc:29] [bool Sample::test()] V5 means output most details, but looks too long!!!
-[2019-08-14 22:31:48.485352] [INFO]  I'm redirected to stdout 1
-[2019-08-14 22:31:48.485282] [INFO] [test] 1500/10000 15.00% rest: 8500
-[2019-08-14 22:31:48.485282] [INFO] [test] 3000/10000 30.00% rest: 7000
-[2019-08-14 22:31:48.485282] [INFO] [test] 4500/10000 45.00% rest: 5500
-[2019-08-14 22:31:48.485282] [INFO] [test] 6000/10000 60.00% rest: 4000
-[2019-08-14 22:31:48.485282] [INFO] [test] 7500/10000 75.00% rest: 2500
-[2019-08-14 22:31:48.485282] [INFO] [test] 9000/10000 90.00% rest: 1000
-[2019-08-14 22:31:48.485282] [INFO] [test] 10000/10000 100.00% rest: 0
-[2019-08-14 22:31:48.494085] [ERROR] [example.cc:56] [test] Arg `data` is null or zero!
-[2019-08-14 22:31:48.494092] [ERROR] [example.cc:80] [main] Assertion: `(ret == true)` failed!
-Test finished!
+[2019-08-17 19:32:56.430039] [DEBUG] [test] V2 means output function's name and date-time
+[2019-08-17 19:32:56.430045] [DEBUG] [bool Sample::test()] V3 means output more details than V2
+[2019-08-17 19:32:56.430051] [DEBUG] [example.cc:28] [test] V4 means output much more details than V2
+[2019-08-17 19:32:56.430060] [DEBUG] [example.cc:29] [bool Sample::test()] V5 means output most details, but looks too long!!!
+[2019-08-17 19:32:56.430194] [INFO]  I'm redirected to stderr again
+[2019-08-17 19:32:56.431936] [INFO] [test] 1500/10000 15.00% rest: 8500
+[2019-08-17 19:32:56.433665] [INFO] [test] 3000/10000 30.00% rest: 7000
+[2019-08-17 19:32:56.435397] [INFO] [test] 4500/10000 45.00% rest: 5500
+[2019-08-17 19:32:56.437087] [INFO] [test] 6000/10000 60.00% rest: 4000
+[2019-08-17 19:32:56.438929] [INFO] [test] 7500/10000 75.00% rest: 2500
+[2019-08-17 19:32:56.440508] [INFO] [test] 9000/10000 90.00% rest: 1000
+[2019-08-17 19:32:56.441836] [INFO] [test] 10000/10000 100.00% rest: 0
+[2019-08-17 19:32:56.441855] [ERROR] [example.cc:51] [test] Arg `data` is null or zero!
+[2019-08-17 19:32:56.441873] [ERROR] [example.cc:75] [main] Assertion: `(ret == true)` failed!
+[2019-08-17 19:32:56.441880] [INFO]  ret is not true!
+[2019-08-17 19:32:56.441887] [EXIT] Test exit
 ```
 
 ```
 cat mylog.txt 
-[2019-08-12 21:02:50.568275] [WARN]  I'm redirected into mylog.txt 0x16d84a0
-[2019-08-12 21:02:50.568304] [CRITICAL] If all the methods are not suitable, still this one
+[2019-08-17 19:32:56.523452] [WARN]  I'm redirected into mylog.txt 0xe22090
 
 ```
 

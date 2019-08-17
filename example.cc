@@ -30,20 +30,15 @@ public:
 
         FILE* logfile = fopen("mylog.txt", "w");
 
+        #pragma push_macro("BRUTE_OSTREAM")
         #define BRUTE_OSTREAM logfile
         BRUTE_WARN("I'm redirected into %s %p", "mylog.txt", logfile);
-
-        // This means you can change buffering method: line-buffered, full-buffered, or none-buffered.
-        BRUTE_SET_BUFFERING_METHOD(0, 1024, BRUTE_LINE_BUFFERED);
-
-        __BRUTE_GET_DT__(dt);
-        BRUTE_FPRINT("%s [%s] If all the methods are not suitable, %s\n", dt, "CRITICAL", "still this one");
 
         BRUTE_CLOSE();  // Close logging, all output will be ignored
         BRUTE_INFO("This will not be written into mylog.txt!!!");
 
-        #define BRUTE_OSTREAM stdout
-        BRUTE_INFO("I'm redirected to stdout %d", fileno(stdout));
+        #pragma pop_macro("BRUTE_OSTREAM")
+        BRUTE_INFO("I'm redirected to stderr again");
 
         // And other debug tools, like print every "interval" steps:
         for (int i = 1; i <= 10000; ++i) {
@@ -71,15 +66,15 @@ int main(int argc, char* argv[])
      *  if (ret != true) {
      *      // Can append more codes here ...
      *      fputs("[2012-12-12 12:12:12] [ERROR] [example.cc:69] [main()] Assertion: `ret == true` failed!\n", stderr);
-     *      fputs("Test finished!\n", stderr);
-     *      return 99;
+     *      fputs("ret is not true!!\n", stderr);
+     *      // ......
      *  } else {
-     *      return 0;
+     *      // ......
      *  }
      */
-    BRUTE_ASSERT((ret == true), BRUTE_PRINT("Test finished!\n"); return 99);
+    BRUTE_ASSERT((ret == true), BRUTE_INFO("ret is not true!"););
 
-    return 0;
+    BRUTE_EXIT("Test exit\n");
 }
 
 
