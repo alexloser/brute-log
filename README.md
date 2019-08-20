@@ -97,32 +97,32 @@ int main(int argc, char* argv[])
 ### Output:
 ```
 ./brute_example0
-[2019-08-17 19:32:56.429855] [INFO]  This is info message: string
-[2019-08-17 19:32:56.429964] [WARN]  This is warn message: C++
-[2019-08-17 19:32:56.429977] [ERROR] This is error message: 0.618000
-[2019-08-17 19:32:56.429995] [FATAL] This is fatal message: 0x7ffc14eedbb0
-[2019-08-17 19:32:56.430003] [DEBUG] This is debug message: 123 456
-[2019-08-17 19:32:56.430015] [LUCKY] This is my custom level message: ^_^
-[2019-08-17 19:32:56.430022] [Hello Kitty] { example.cc#19 test } also custom
+[2019-08-20 19:48:04.908561] [INFO] This is info message: string
+[2019-08-20 19:48:04.908691] [WARN] This is warn message: C++
+[2019-08-20 19:48:04.908699] [ERROR] This is error message: 0.618000
+[2019-08-20 19:48:04.908717] [FATAL] This is fatal message: 0x7fff90e18110
+[2019-08-20 19:48:04.908725] [DEBUG] This is debug message: 123 456
+[2019-08-20 19:48:04.908732] [LUCKY] This is my custom level message: ^_^
+[2019-08-20 19:48:04.908740] [Hello Kitty] { example.cc#19 test } also custom
 
 [DEBUG] V0 means only level information...
 [DEBUG] [test] V1 means also output function's name
-[2019-08-17 19:32:56.430039] [DEBUG] [test] V2 means output function's name and date-time
-[2019-08-17 19:32:56.430045] [DEBUG] [bool Sample::test()] V3 means output more details than V2
-[2019-08-17 19:32:56.430051] [DEBUG] [example.cc:28] [test] V4 means output much more details than V2
-[2019-08-17 19:32:56.430060] [DEBUG] [example.cc:29] [bool Sample::test()] V5 means output most details, but looks too long!!!
-[2019-08-17 19:32:56.430194] [INFO]  I'm redirected to stderr again
-[2019-08-17 19:32:56.431936] [INFO] [test] 1500/10000 15.00% rest: 8500
-[2019-08-17 19:32:56.433665] [INFO] [test] 3000/10000 30.00% rest: 7000
-[2019-08-17 19:32:56.435397] [INFO] [test] 4500/10000 45.00% rest: 5500
-[2019-08-17 19:32:56.437087] [INFO] [test] 6000/10000 60.00% rest: 4000
-[2019-08-17 19:32:56.438929] [INFO] [test] 7500/10000 75.00% rest: 2500
-[2019-08-17 19:32:56.440508] [INFO] [test] 9000/10000 90.00% rest: 1000
-[2019-08-17 19:32:56.441836] [INFO] [test] 10000/10000 100.00% rest: 0
-[2019-08-17 19:32:56.441855] [ERROR] [example.cc:51] [test] Arg `data` is null or zero!
-[2019-08-17 19:32:56.441873] [ERROR] [example.cc:75] [main] Assertion: `(ret == true)` failed!
-[2019-08-17 19:32:56.441880] [INFO]  ret is not true!
-[2019-08-17 19:32:56.441887] [EXIT] Test exit
+[2019-08-20 19:48:04.908757] [DEBUG] [test] V2 means output function's name and date-time
+[2019-08-20 19:48:04.908765] [DEBUG] [bool Sample::test()] V3 means output more details than V2
+[2019-08-20 19:48:04.908772] [DEBUG] [example.cc:28] [test] V4 means output much more details than V2
+[2019-08-20 19:48:04.908778] [DEBUG] [example.cc:29] [bool Sample::test()] V5 means output most details, but looks too long!!!
+[2019-08-20 19:48:04.908897] [INFO] I'm redirected to stderr again
+[2019-08-20 19:48:04.910087] [INFO] [test] 1500/10000 15.00% rest: 8500
+[2019-08-20 19:48:04.911275] [INFO] [test] 3000/10000 30.00% rest: 7000
+[2019-08-20 19:48:04.913020] [INFO] [test] 4500/10000 45.00% rest: 5500
+[2019-08-20 19:48:04.914771] [INFO] [test] 6000/10000 60.00% rest: 4000
+[2019-08-20 19:48:04.916482] [INFO] [test] 7500/10000 75.00% rest: 2500
+[2019-08-20 19:48:04.917711] [INFO] [test] 9000/10000 90.00% rest: 1000
+[2019-08-20 19:48:04.918534] [INFO] [test] 10000/10000 100.00% rest: 0
+[2019-08-20 19:48:04.918539] [ERROR] [example.cc:51] [test] Arg `data` is null or zero!
+[2019-08-20 19:48:04.918546] [ERROR] [example.cc:75] [main] Assertion: `(ret == true)` failed!
+[2019-08-20 19:48:04.918554] [INFO] ret is not true!
+[2019-08-20 19:48:04.918562] [EXIT] Test exit
 ```
 
 ```

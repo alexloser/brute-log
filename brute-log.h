@@ -135,84 +135,84 @@ BRUTE_SNIPPET_END
 /////////////////////////////////// INFO /////////////////////////////////////
 #define BRUTE_INFO_V0(fmt, ...)     \
 BRUTE_SNIPPET_BEGIN                 \
-    BRUTE_FASTEST_FPRINTF(BRUTE_OSTREAM, ("[INFO]  " fmt "\n"), ##__VA_ARGS__); \
+    BRUTE_FASTEST_FPRINTF(BRUTE_OSTREAM, ("[INFO] " fmt "\n"), ##__VA_ARGS__); \
 BRUTE_SNIPPET_END
 
 #define BRUTE_INFO_V1(fmt, ...)     \
 BRUTE_SNIPPET_BEGIN                 \
-    BRUTE_FASTEST_FPRINTF(BRUTE_OSTREAM, ("[INFO]  [%s] " fmt "\n"), __FUNCTION__, ##__VA_ARGS__); \
+    BRUTE_FASTEST_FPRINTF(BRUTE_OSTREAM, ("[INFO] [%s] " fmt "\n"), __FUNCTION__, ##__VA_ARGS__); \
 BRUTE_SNIPPET_END
 
 #define BRUTE_INFO_V2(fmt, ...)     \
 BRUTE_SNIPPET_BEGIN                 \
     __BRUTE_GET_DT__(__brtlg_dt__); \
-    BRUTE_FASTEST_FPRINTF(BRUTE_OSTREAM, ("%s [INFO]  [%s] " fmt "\n"), __brtlg_dt__, __FUNCTION__, ##__VA_ARGS__); \
+    BRUTE_FASTEST_FPRINTF(BRUTE_OSTREAM, ("%s [INFO] [%s] " fmt "\n"), __brtlg_dt__, __FUNCTION__, ##__VA_ARGS__); \
 BRUTE_SNIPPET_END
 
 #define BRUTE_INFO_V3(fmt, ...)     \
 BRUTE_SNIPPET_BEGIN                 \
     __BRUTE_GET_DT__(__brtlg_dt__); \
-    BRUTE_FASTEST_FPRINTF(BRUTE_OSTREAM, ("%s [INFO]  [%s] " fmt "\n"), __brtlg_dt__, __PRETTY_FUNCTION__, ##__VA_ARGS__); \
+    BRUTE_FASTEST_FPRINTF(BRUTE_OSTREAM, ("%s [INFO] [%s] " fmt "\n"), __brtlg_dt__, __PRETTY_FUNCTION__, ##__VA_ARGS__); \
 BRUTE_SNIPPET_END
 
 #define BRUTE_INFO_V4(fmt, ...)     \
 BRUTE_SNIPPET_BEGIN                 \
     __BRUTE_GET_DT__(__brtlg_dt__); \
-    BRUTE_FASTEST_FPRINTF(BRUTE_OSTREAM, ("%s [INFO]  [%s:%d] [%s] " fmt "\n"), __brtlg_dt__, BRUTE_SRC_POS, ##__VA_ARGS__); \
+    BRUTE_FASTEST_FPRINTF(BRUTE_OSTREAM, ("%s [INFO] [%s:%d] [%s] " fmt "\n"), __brtlg_dt__, BRUTE_SRC_POS, ##__VA_ARGS__); \
 BRUTE_SNIPPET_END
 
 #define BRUTE_INFO_V5(fmt, ...)     \
 BRUTE_SNIPPET_BEGIN                 \
     __BRUTE_GET_DT__(__brtlg_dt__); \
-    BRUTE_FASTEST_FPRINTF(BRUTE_OSTREAM, ("%s [INFO]  [%s:%d] [%s] " fmt "\n"), __brtlg_dt__, BRUTE_SRC_POSEX, ##__VA_ARGS__); \
+    BRUTE_FASTEST_FPRINTF(BRUTE_OSTREAM, ("%s [INFO] [%s:%d] [%s] " fmt "\n"), __brtlg_dt__, BRUTE_SRC_POSEX, ##__VA_ARGS__); \
 BRUTE_SNIPPET_END
 
 #define BRUTE_INFO(fmt, ...)        \
 BRUTE_SNIPPET_BEGIN                 \
     __BRUTE_GET_DT__(__brtlg_dt__); \
-    BRUTE_FASTEST_FPRINTF(BRUTE_OSTREAM, ("%s [INFO]  " fmt "\n"), __brtlg_dt__, ##__VA_ARGS__); \
+    BRUTE_FASTEST_FPRINTF(BRUTE_OSTREAM, ("%s [INFO] " fmt "\n"), __brtlg_dt__, ##__VA_ARGS__); \
 BRUTE_SNIPPET_END
 
 
 /////////////////////////////////// WARN /////////////////////////////////////
 #define BRUTE_WARN_V0(fmt, ...)     \
 BRUTE_SNIPPET_BEGIN                 \
-    BRUTE_FASTEST_FPRINTF(BRUTE_OSTREAM, ("[WARN]  " fmt "\n"), ##__VA_ARGS__); \
+    BRUTE_FASTEST_FPRINTF(BRUTE_OSTREAM, ("[WARN] " fmt "\n"), ##__VA_ARGS__); \
 BRUTE_SNIPPET_END
 
 #define BRUTE_WARN_V1(fmt, ...)     \
 BRUTE_SNIPPET_BEGIN                 \
-    BRUTE_FASTEST_FPRINTF(BRUTE_OSTREAM, ("[WARN]  [%s] " fmt "\n"), __FUNCTION__, ##__VA_ARGS__); \
+    BRUTE_FASTEST_FPRINTF(BRUTE_OSTREAM, ("[WARN] [%s] " fmt "\n"), __FUNCTION__, ##__VA_ARGS__); \
 BRUTE_SNIPPET_END
 
 #define BRUTE_WARN_V2(fmt, ...)     \
 BRUTE_SNIPPET_BEGIN                 \
     __BRUTE_GET_DT__(__brtlg_dt__); \
-    BRUTE_FASTEST_FPRINTF(BRUTE_OSTREAM, ("%s [WARN]  [%s] " fmt "\n"), __brtlg_dt__, __FUNCTION__, ##__VA_ARGS__); \
+    BRUTE_FASTEST_FPRINTF(BRUTE_OSTREAM, ("%s [WARN] [%s] " fmt "\n"), __brtlg_dt__, __FUNCTION__, ##__VA_ARGS__); \
 BRUTE_SNIPPET_END
 
 #define BRUTE_WARN_V3(fmt, ...)     \
 BRUTE_SNIPPET_BEGIN                 \
     __BRUTE_GET_DT__(__brtlg_dt__); \
-    BRUTE_FASTEST_FPRINTF(BRUTE_OSTREAM, ("%s [WARN]  [%s] " fmt "\n"), __brtlg_dt__, __PRETTY_FUNCTION__, ##__VA_ARGS__); \
+    BRUTE_FASTEST_FPRINTF(BRUTE_OSTREAM, ("%s [WARN] [%s] " fmt "\n"), __brtlg_dt__, __PRETTY_FUNCTION__, ##__VA_ARGS__); \
 BRUTE_SNIPPET_END
 
 #define BRUTE_WARN_V4(fmt, ...)     \
 BRUTE_SNIPPET_BEGIN                 \
     __BRUTE_GET_DT__(__brtlg_dt__); \
-    BRUTE_FASTEST_FPRINTF(BRUTE_OSTREAM, ("%s [WARN]  [%s:%d] [%s] " fmt "\n"), __brtlg_dt__, BRUTE_SRC_POS, ##__VA_ARGS__); \
+    BRUTE_FASTEST_FPRINTF(BRUTE_OSTREAM, ("%s [WARN] [%s:%d] [%s] " fmt "\n"), __brtlg_dt__, BRUTE_SRC_POS, ##__VA_ARGS__); \
 BRUTE_SNIPPET_END
 
 #define BRUTE_WARN_V5(fmt, ...)     \
 BRUTE_SNIPPET_BEGIN                 \
     __BRUTE_GET_DT__(__brtlg_dt__); \
-    BRUTE_FASTEST_FPRINTF(BRUTE_OSTREAM, ("%s [WARN]  [%s:%d] [%s] " fmt "\n"), __brtlg_dt__, BRUTE_SRC_POSEX, ##__VA_ARGS__); \
+    BRUTE_FASTEST_FPRINTF(BRUTE_OSTREAM, ("%s [WARN] [%s:%d] [%s] " fmt "\n"), __brtlg_dt__, BRUTE_SRC_POSEX, ##__VA_ARGS__); \
 BRUTE_SNIPPET_END
 
 #define BRUTE_WARN(fmt, ...)        \
 BRUTE_SNIPPET_BEGIN                 \
     __BRUTE_GET_DT__(__brtlg_dt__); \
-    BRUTE_FASTEST_FPRINTF(BRUTE_OSTREAM, ("%s [WARN]  " fmt "\n"), __brtlg_dt__, ##__VA_ARGS__); \
+    BRUTE_FASTEST_FPRINTF(BRUTE_OSTREAM, ("%s [WARN] " fmt "\n"), __brtlg_dt__, ##__VA_ARGS__); \
 BRUTE_SNIPPET_END
 
 
