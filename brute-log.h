@@ -363,7 +363,7 @@ BRUTE_SNIPPET_END
 #define BRUTE_LOG(level, fmt, ...)  \
 BRUTE_SNIPPET_BEGIN                 \
     __BRUTE_GET_DT__(__brtlg_dt__); \
-    char __crdlg_vfmt__[BRUTE_MAX_FMT<<1];       \
+    char __crdlg_vfmt__[BRUTE_MAX_FMT<<1];                                             \
     strcat(strcat(strcpy(__crdlg_vfmt__, ("%s [" #level "] ")), (fmt)), "\n");         \
     BRUTE_FASTEST_FPRINTF(BRUTE_OSTREAM, __crdlg_vfmt__, __brtlg_dt__, ##__VA_ARGS__); \
 BRUTE_SNIPPET_END
@@ -471,6 +471,11 @@ if (!(expr)) {                                         \
 }
 #endif// BRUTE_CHKPTR
 
+#if    __cplusplus >= 201103L
+#ifndef  BRUTE_STATIC_ASSERT
+#define  BRUTE_STATIC_ASSERT(...) static_assert((__VA_ARGS__), #__VA_ARGS__)
+#endif //BRUTE_STATIC_ASSERT
+#endif //c++11
 
 #ifndef  BRUTE_CHECK_PTR
 #define  BRUTE_CHECK_PTR(ptr, ...)                      \
