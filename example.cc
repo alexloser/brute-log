@@ -72,7 +72,8 @@ int main(int argc, char* argv[])
      *      // ......
      *  }
      */
-    BRUTE_ASSERT((ret == true), BRUTE_INFO("ret is not true!"););
+    BRUTE_ASSERT_C((ret == true), BRUTE_INFO("ret is not true!"););   // won't abort
+    // BRUTE_ASSERT((ret == true), BRUTE_INFO("ret is not true!"););  // will abort
 
     BRUTE_EXIT("Test exit\n");
 }

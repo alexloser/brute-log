@@ -464,12 +464,24 @@ BRUTE_SNIPPET_END
 ////////////////////// Debugging(but can not be closed) //////////////////////
 //////////////////////////////////////////////////////////////////////////////
 #ifndef  BRUTE_ASSERT
-#define  BRUTE_ASSERT(expr, ...)                       \
-if (!(expr)) {                                         \
-    BRUTE_ERROR_V4("Assertion: `" #expr "` failed!");  \
-    __VA_ARGS__;                                       \
+#define  BRUTE_ASSERT(expr, ...) \
+if (!(expr)) { \
+    fprintf(BRUTE_OSTREAM, "[FATAL] [%s:%d] [%s] Assertion: `" #expr "` failed!", BRUTE_SRC_POS); \
+    __VA_ARGS__; \
+    fflush(BRUTE_OSTREAM); \
+    fclose(BRUTE_OSTREAM); \
+    abort(); \
 }
-#endif// BRUTE_CHKPTR
+#endif// BRUTE_ASSERT
+
+#ifndef  BRUTE_ASSERT_C
+#define  BRUTE_ASSERT_C(expr, ...) \
+if (!(expr)) { \
+    BRUTE_ERROR_V4("Assertion: `" #expr "` failed!"); \
+    __VA_ARGS__; \
+}
+#endif// BRUTE_ASSERT_C
+
 
 #if    __cplusplus >= 201103L
 #ifndef  BRUTE_STATIC_ASSERT
