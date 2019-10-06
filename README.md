@@ -1,12 +1,22 @@
-# brute-log
+```
+  __                                          __                                       
+ |  |                         __             |  |                                      
+ |  |____  _______ __   __  _|  |_   ____    |  |      ______   ______                  
+ |   __  \ |  ___/ | | | | /_    _\ / __  \  |  |     /  __  \ /  __  \                 
+ |  |__|  || |     | |_| |   |  |_ |  ____/  |  |____ | |__| | | |__| |                 
+ |_______/ |_|     \_____/   |___/  \____/   |______/ \______/ \____  |                 
+                                                                \_____/ithub.com/alexloser
+```
 
-A tiny tool for printing, debugging and logging in C/C++.  
 
-Only works on linux system with GCC compiler.
+### brute-log:
+ * A tiny tool for printing, debugging and logging in C/C++.  
 
-No functions or global variables. Only macros in one header file.
+ * Only works on linux system with GCC compiler.  
 
-It's brute and crude, so, really fast...  
+ * No functions or global variables. Only macros in one header file.  
+
+ * It's brute and crude, so, really fast...   
   
 
 ### Usage:
