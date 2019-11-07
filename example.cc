@@ -16,7 +16,7 @@ public:
 
         // If I want a new level named "Lucky" ...
         BRUTE_LOG(LUCKY, "This is my custom level message: %s", "^_^");
-        BRUTE_LOG(Hello Kitty, "{ %s#%d %s } also custom", BRUTE_SRC_POS);
+        BRUTE_LOG(Hello Kitty, "{ %s#%d %s } also custom", BRUTE_SRC_POSEX);
 
         BRUTE_LF();  // print empty line
 
